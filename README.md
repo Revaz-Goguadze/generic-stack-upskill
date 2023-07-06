@@ -2,7 +2,7 @@
 
 Intermediate level task for practice generic classes and interfaces. 
 
-Estimated time to complete the task - 1.5h.  
+Estimated time to complete the task - 2h.  
 
 The task requires .NET 6 SDK installed.   
 
