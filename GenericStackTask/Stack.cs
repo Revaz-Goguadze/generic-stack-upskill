@@ -256,9 +256,6 @@ namespace GenericStackTask
             /// </summary>
             public void Dispose()
             {
-#pragma warning disable CA1065
-                throw new InvalidOperationException("Dispose method is not supported for StackIterator.");
-#pragma warning restore CA1065
             }
         }
     }
