@@ -137,28 +137,9 @@ namespace GenericStackTask
         /// <returns>Return true if item is found in the stack; otherwise, false.</returns>
         public bool Contains(T item)
         {
-            if (item is null)
-            {
-                foreach (T comparedItem in this.stack)
-                {
-                    if (comparedItem is null)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-
-            foreach (T comparedItem in this.stack)
-            {
-                if (item.Equals(comparedItem))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return item is null
+                ? this.stack.Any(comparedItem => comparedItem is null)
+                : this.stack.Contains(item);
         }
 
         /// <summary>
@@ -265,15 +246,8 @@ namespace GenericStackTask
 
                 // If you want to throw a 'NotSupportedException' to indicate that the Dispose method should be implemented in derived classes,
                 // you can do so as follows:
-                // throw new NotSupportedException("Dispose method must be implemented in derived classes.");
-
                 // Alternatively, if you want to provide a default implementation that can be optionally overridden by derived classes,
                 // you can add logic here and also use the 'virtual' keyword in the method signature:
-                // For example:
-                // protected virtual void Dispose()
-                // {
-                //     // Default implementation
-                // }
 
                 // Remember to choose the approach that best aligns with your design and the intended behavior of the base and derived classes.
             }
