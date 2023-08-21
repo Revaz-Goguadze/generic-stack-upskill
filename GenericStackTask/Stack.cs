@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GenericStackTask
 {
@@ -32,7 +33,7 @@ namespace GenericStackTask
         {
             if (capacity <= 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(capacity), "Stack capasity must be gerater than 0.");
+                throw new ArgumentOutOfRangeException(nameof(capacity), "Stack capacity must be greater than 0.");
             }
 
             this.stack = new T[capacity];
@@ -201,7 +202,7 @@ namespace GenericStackTask
         /// <summary>
         /// Represents iterator for the <see cref="Stack{T}"/> class.
         /// </summary>
-        public struct StackIterator : IEnumerator<T>
+        private struct StackIterator : IEnumerator<T>
         {
             private readonly Stack<T> collection;
             private int currentIndex;
@@ -252,10 +253,29 @@ namespace GenericStackTask
             }
 
             /// <summary>
-            /// Not implemented.
+            /// This method is empty because it has been marked as not implemented, and it is intended to be overridden by derived classes.
             /// </summary>
             public void Dispose()
             {
+                // The Dispose method is provided as a placeholder in the base class, but it doesn't contain any implementation logic.
+                // This is because it's often used in a scenario where derived classes might need to perform cleanup operations,
+                // such as releasing resources, closing connections, or finalizing state.
+                // By making this method empty in the base class, it ensures that any derived class must explicitly override and provide
+                // their own implementation, tailored to their specific requirements.
+
+                // If you want to throw a 'NotSupportedException' to indicate that the Dispose method should be implemented in derived classes,
+                // you can do so as follows:
+                // throw new NotSupportedException("Dispose method must be implemented in derived classes.");
+
+                // Alternatively, if you want to provide a default implementation that can be optionally overridden by derived classes,
+                // you can add logic here and also use the 'virtual' keyword in the method signature:
+                // For example:
+                // protected virtual void Dispose()
+                // {
+                //     // Default implementation
+                // }
+
+                // Remember to choose the approach that best aligns with your design and the intended behavior of the base and derived classes.
             }
         }
     }
